@@ -1,26 +1,66 @@
 @import "tailwindcss";
+@config "../../tailwind.config.ts";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-background: #050810;
+  --color-surface: #0b0f1e;
+  --color-elevated: #101526;
+  
+  --color-gold: #c9a84c;
+  --color-gold-hover: #e8c97e;
+  --color-gold-tint: rgba(201, 168, 76, 0.18);
+  
+  --color-cyan: #00d4ff;
+  --color-cyan-hover: #7eeeff;
+  
+  --color-text-primary: #e8e4d8;
+  --color-text-muted: #7a7a94;
+
+  --color-glass: rgba(255, 255, 255, 0.03);
+
+  --font-heading: var(--font-cormorant);
+  --font-body: var(--font-dm-sans);
+  --font-mono: var(--font-jetbrains);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@utility glass-card {
+  background-color: var(--color-glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-gold-tint);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@utility text-gradient-gold {
+  background: linear-gradient(to right, var(--color-gold), var(--color-gold-hover));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (pointer: fine) {
+  html, body {
+    cursor: none !important;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 4px;
 }
