@@ -15,13 +15,13 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="flex flex-col gap-6 text-text-muted leading-relaxed">
             <p className="text-lg">
-              Hello! I'm <span className="text-white font-medium">[Your Name]</span>, a passionate Full Stack Developer focused on building robust, scalable digital solutions. With expertise in Next.js, ReactJS, and Node.js, I bridge the gap between frontend aesthetics and backend performance.
+              Hello! I'm <span className="text-white font-medium">B. S. Sri Pragnya</span>, a passionate Frontend Developer focused on building robust, scalable digital solutions. With expertise in React 19, TypeScript, and Tailwind CSS, I create beautiful, responsive, and accessible user interfaces.
             </p>
             <p className="text-lg">
-              My engineering journey involves designing RESTful APIs, optimizing SQL databases, and deploying microservices on cloud infrastructures like AWS and Azure. I thrive in Agile environments, bringing complex ideas from conception to production.
+              My engineering journey extends beyond the browser. I have hands-on experience building intelligent systems with Python, FastAPI, and LangChain, seamlessly connecting frontend aesthetics with advanced AI capabilities and relational databases.
             </p>
             <p className="text-lg">
-              I am particularly drawn to <span className="text-cyan font-medium">Healthcare Technology</span>. The mission of Afford Medical Technologies Private Limited to innovate within the healthcare sector aligns perfectly with my ambition to write code that makes a tangible, positive impact on people's lives.
+              I am particularly drawn to <span className="text-cyan font-medium">innovative AI technologies</span>. My goal is to build applications that not only look great but also leverage modern AI frameworks to make a tangible, positive impact on user workflows and problem-solving.
             </p>
           </div>
 

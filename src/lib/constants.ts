@@ -1,17 +1,17 @@
 export const SITE_METADATA = {
-  title: "[Your Name] - Full Stack Developer",
-  description: "Portfolio of [Your Name], evaluating for Afford Medical Technologies Private Limited.",
+  title: "Sri Pragnya's Portfolio",
+  description: "Portfolio of B. S. Sri Pragnya, Frontend Developer and AI Enthusiast.",
 };
 
 export const COMMON_LINKS = {
-  github: "[GitHub URL]",
-  linkedin: "[LinkedIn URL]",
-  email: "mailto:[your@email.com]",
+  github: "https://github.com/",
+  linkedin: "https://linkedin.com/",
+  email: "mailto:contact@example.com",
 };
 
 export const PORTFOLIO_STATS = [
-  { value: "15+", label: "Projects" },
-  { value: "3+", label: "Years" },
-  { value: "99%", label: "Uptime" },
-  { value: "8+", label: "Tech Stacks" }
+  { value: "3+", label: "Projects" },
+  { value: "1+", label: "Years Experience" },
+  { value: "10+", label: "Tech Stacks" },
+  { value: "100%", label: "Commitment" }
 ];

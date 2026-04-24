@@ -3,6 +3,7 @@ import { Cormorant_Garamond, DM_Sans, JetBrains_Mono } from "next/font/google";
 import { SITE_METADATA } from "@/lib/constants";
 import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
+import "@/lib/firebase";
 
 const cormorantGaramond = Cormorant_Garamond({
   weight: ["300", "400", "500", "600", "700"],

@@ -29,7 +29,7 @@ export default function Hero() {
         >
           <motion.div variants={itemVariants} className="flex justify-between items-start">
             <div className="inline-block px-4 py-1.5 rounded-full border border-cyan/30 bg-cyan/5 text-cyan font-mono text-sm mb-6">
-              {"//"} Full Stack Engineer · ReactJS · NextJS · Cloud
+              {"//"} Frontend Developer · ReactJS · Python · LangChain
             </div>
             <div className="hidden lg:block absolute right-0 top-0 xl:-right-24 xl:-top-12">
                <OrbitalBadge />
@@ -37,11 +37,11 @@ export default function Hero() {
           </motion.div>
           
           <motion.h1 variants={itemVariants} className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8">
-            Building <span className="text-gradient-gold">scalable</span> digital experiences
+            Building <span className="text-gradient-gold">intelligent</span> frontend experiences
           </motion.h1>
           
           <motion.p variants={itemVariants} className="text-lg md:text-xl text-text-muted max-w-2xl mb-12 leading-relaxed">
-            I architect and develop high-performance web applications with a focus on modern frameworks, microservices, and exceptional user experiences.
+            I develop dynamic, user-centric interfaces and explore advanced AI-driven workflows to bring innovative ideas to life.
           </motion.p>
           
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
