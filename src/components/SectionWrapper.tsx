@@ -13,11 +13,11 @@ export default function SectionWrapper({ children, id, className = "" }: Section
   return (
     <motion.section
       id={id}
-      className={`py-24 md:py-32 outline-none ${className}`}
-      initial={{ opacity: 0, y: 30 }}
+      className={`py-24 md:py-32 outline-none relative ${className}`}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.7, ease: "easeOut" }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
     </motion.section>

@@ -10,9 +10,7 @@ export default function ParticleBackground() {
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
-    }).then(() => {
-      setInit(true);
-    });
+    }).then(() => setInit(true));
   }, []);
 
   if (!init) return null;
@@ -22,64 +20,31 @@ export default function ParticleBackground() {
       id="tsparticles"
       className="fixed inset-0 -z-10 pointer-events-none"
       options={{
-        background: {
-          color: {
-            value: "transparent",
-          },
-        },
-        fpsLimit: 120,
+        background: { color: { value: "transparent" } },
+        fpsLimit: 60,
         interactivity: {
-          events: {
-            onHover: {
-              enable: true,
-              mode: "grab",
-            },
-          },
-          modes: {
-            grab: {
-              distance: 140,
-              links: {
-                opacity: 0.5,
-              },
-            },
-          },
+          events: { onHover: { enable: true, mode: "grab" } },
+          modes: { grab: { distance: 120, links: { opacity: 0.3 } } },
         },
         particles: {
-          color: {
-            value: ["#c9a84c", "#00d4ff"],
-          },
+          color: { value: ["#6366f1", "#818cf8"] },
           links: {
-            color: "#7a7a94",
-            distance: 150,
+            color: "#6366f1",
+            distance: 160,
             enable: true,
-            opacity: 0.2,
-            width: 1,
+            opacity: 0.07,
+            width: 0.5,
           },
           move: {
-            direction: "none",
             enable: true,
-            outModes: {
-              default: "bounce",
-            },
-            random: false,
-            speed: 0.6,
-            straight: false,
+            speed: 0.3,
+            direction: "none",
+            outModes: { default: "bounce" },
           },
-          number: {
-            density: {
-              enable: true,
-            },
-            value: 60,
-          },
-          opacity: {
-            value: 0.3,
-          },
-          shape: {
-            type: "circle",
-          },
-          size: {
-            value: { min: 1, max: 2 },
-          },
+          number: { value: 40, density: { enable: true } },
+          opacity: { value: 0.2 },
+          shape: { type: "circle" },
+          size: { value: { min: 0.5, max: 1.5 } },
         },
         detectRetina: true,
       }}

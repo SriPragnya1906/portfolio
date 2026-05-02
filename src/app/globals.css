@@ -1,66 +1,153 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import '../lightswind.css';
 @config "../../tailwind.config.ts";
 
+/* ═══════════════════════════════════════════════════════
+   STRICT 2-COLOR DESIGN SYSTEM
+   Surface:  #050507  (pure obsidian)
+   Accent:   #6366f1  (indigo-500)
+   Text:     #fafafa  (white) / #71717a (muted)
+═══════════════════════════════════════════════════════ */
 @theme {
-  --color-background: #050810;
-  --color-surface: #0b0f1e;
-  --color-elevated: #101526;
-  
-  --color-gold: #c9a84c;
-  --color-gold-hover: #e8c97e;
-  --color-gold-tint: rgba(201, 168, 76, 0.18);
-  
-  --color-cyan: #00d4ff;
-  --color-cyan-hover: #7eeeff;
-  
-  --color-text-primary: #e8e4d8;
-  --color-text-muted: #7a7a94;
+  --color-surface: #050507;
+  --color-surface-2: #0c0c12;
+  --color-surface-3: #12121a;
+  --color-surface-card: #0e0e15;
 
-  --color-glass: rgba(255, 255, 255, 0.03);
+  --color-accent: #6366f1;
+  --color-accent-light: #818cf8;
+  --color-accent-dim: rgba(99,102,241,0.12);
+
+  --color-text-primary: #fafafa;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #71717a;
+  --color-text-faint: #3f3f46;
+
+  --color-border: rgba(99,102,241,0.12);
+  --color-border-hover: rgba(99,102,241,0.25);
 
   --font-heading: var(--font-cormorant);
   --font-body: var(--font-dm-sans);
   --font-mono: var(--font-jetbrains);
 }
 
-@utility glass-card {
-  background-color: var(--color-glass);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--color-gold-tint);
+/* ═══════ KEYFRAMES ═══════ */
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  50% { transform: translate(-3%, 3%); }
+  90% { transform: translate(-2%, 8%); }
 }
 
-@utility text-gradient-gold {
-  background: linear-gradient(to right, var(--color-gold), var(--color-gold-hover));
+@keyframes shimmer-sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes mesh-drift {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, -30px) scale(1.05); }
+  66% { transform: translate(-30px, 20px) scale(0.95); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ═══════ UTILITIES ═══════ */
+
+@utility text-gradient {
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 50%, #fafafa 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+@utility glass-card {
+  background: rgba(12, 12, 18, 0.6);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--color-border);
+}
+
+@utility glass-card-hover {
+  background: rgba(12, 12, 18, 0.8);
+  backdrop-filter: blur(24px);
+  border: 1px solid var(--color-border-hover);
+  box-shadow: 0 0 40px rgba(99,102,241,0.08);
+}
+
+/* ═══════ BASE ═══════ */
+
 html {
   scroll-behavior: smooth;
-}
-
-@media (pointer: fine) {
-  html, body {
-    cursor: none !important;
-  }
-}
-
-body {
-  background-color: var(--color-background);
-  color: var(--color-text-primary);
-  font-family: var(--font-body);
   overflow-x: hidden;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
+body {
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--color-background);
+/* Film grain */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 8s steps(10) infinite;
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--color-gold);
-  border-radius: 4px;
+/* Scrollbar */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-accent); border-radius: 2px; }
+
+/* Selection */
+::selection { background: rgba(99,102,241,0.3); color: #fff; }
+
+/* ═══════ REUSABLE ═══════ */
+
+.mesh-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  animation: mesh-drift 25s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Speed Dial override for our theme */
+.relative.z-50 button {
+  cursor: pointer !important;
+}
+
+/* lightswind override – primary color for speed dial */
+:root {
+  --primary: 239 84% 67%;
+  --primary-foreground: 0 0% 100%;
+  --background: 240 10% 3%;
+  --foreground: 0 0% 98%;
+  --muted: 240 6% 10%;
+  --muted-foreground: 240 5% 52%;
+  --accent: 239 84% 67%;
+  --accent-foreground: 0 0% 98%;
+  --border: 240 6% 15%;
+  --ring: 239 84% 67%;
+  --input: 240 6% 15%;
+  --secondary: 240 6% 10%;
+  --secondary-foreground: 0 0% 98%;
 }

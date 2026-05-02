@@ -6,7 +6,7 @@ export const SITE_METADATA = {
 export const COMMON_LINKS = {
   github: "https://github.com/",
   linkedin: "https://linkedin.com/",
-  email: "mailto:contact@example.com",
+  email: "mailto:sripragnya1906@gmail.com",
 };
 
 export const PORTFOLIO_STATS = [
